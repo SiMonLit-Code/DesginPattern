@@ -38,6 +38,7 @@ class ConcreteImplementor implements Implementor{
 }
 
 /**
+ *
  * 抽象化角色
  */
 abstract class Abstraction{
