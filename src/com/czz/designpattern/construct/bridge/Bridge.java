@@ -23,7 +23,7 @@ public class Bridge {
  * 实现化角色
  */
 interface Implementor{
-    public void operationImpl();
+    void operationImpl();
 }
 
 /**

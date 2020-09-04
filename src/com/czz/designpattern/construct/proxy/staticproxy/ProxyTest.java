@@ -1,4 +1,4 @@
-package com.czz.designpattern.construct.proxy;
+package com.czz.designpattern.construct.proxy.staticproxy;
 
 /**
  * @author : czz
