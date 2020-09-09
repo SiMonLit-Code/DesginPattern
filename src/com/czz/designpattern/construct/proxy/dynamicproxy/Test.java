@@ -12,7 +12,8 @@ import java.lang.reflect.Proxy;
 public class Test {
     public static void main(String[] args) {
         TemplateTest templateTest = new TemplateTestImpl();
-        TemplateTest instance = (TemplateTest) Proxy.newProxyInstance(TemplateTest.class.getClassLoader(),
+        TemplateTest instance = (TemplateTest) Proxy.newProxyInstance(
+                TemplateTest.class.getClassLoader(),
                 new Class[]{TemplateTest.class},
                 new ProxyTest(templateTest));
         instance.operation();
