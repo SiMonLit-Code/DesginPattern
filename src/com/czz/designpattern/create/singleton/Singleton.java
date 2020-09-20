@@ -1,5 +1,7 @@
 package com.czz.designpattern.create.singleton;
 
+import java.io.DataInputStream;
+
 /**
  * @author : czz
  * @version : 1.0.0
@@ -44,5 +46,32 @@ public class Singleton {
         public static HungrySingleton getInstance(){
             return instance;
         }
+    }
+
+
+    //双重检查方法
+    public static class DoubleCheckSingleton{
+        private static volatile DoubleCheckSingleton doubleCheckSingleton = null;
+        private DoubleCheckSingleton(){}
+        public static DoubleCheckSingleton getInstance(){
+            if (doubleCheckSingleton == null){
+                synchronized (DoubleCheckSingleton.class){
+                    doubleCheckSingleton = new DoubleCheckSingleton();
+                }
+            }
+            return doubleCheckSingleton;
+        }
+    }
+
+
+    /**
+     * 静态内部类，既实现懒加载，又实现进程安全
+     * 创建外内类时，内部类不会被加载！
+     */
+    public static class InnerClassSingleton{
+        public static final Singleton singleton = new Singleton();
+    }
+    public static Singleton getInstance(){
+        return InnerClassSingleton.singleton;
     }
 }
