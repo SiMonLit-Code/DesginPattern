@@ -27,7 +27,11 @@ public class ProxyTest{
 
     //代理
     class Proxy implements AbstractObject{
-        private RealObject realObject;
+        private AbstractObject realObject;
+
+        public Proxy(AbstractObject realObject) {
+            this.realObject = realObject;
+        }
 
         @Override
         public void request() {
@@ -39,7 +43,11 @@ public class ProxyTest{
              */
             realObject.request();
         }
+    }
 
-
+    public static void main(String[] args) {
+        AbstractObject realObject = new ProxyTest().new RealObject();
+        Proxy proxy = new ProxyTest().new Proxy(realObject);
+        proxy.request();
     }
 }

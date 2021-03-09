@@ -17,7 +17,5 @@ public class Test {
                 new Class[]{TemplateTest.class},
                 new ProxyTest(templateTest));
         instance.operation();
-
-
     }
 }

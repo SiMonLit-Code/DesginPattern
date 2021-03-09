@@ -10,16 +10,17 @@ import java.lang.reflect.Method;
  * @description :
  */
 public class ProxyTest implements InvocationHandler {
-    TemplateTest templateTest;
+    // 只需维护一个代理对象
+    Object object;
 
-    public ProxyTest(TemplateTest templateTest) {
-        this.templateTest = templateTest;
+    public ProxyTest(Object object) {
+        this.object = object;
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("方法动态代理前");
-        Object invoke = method.invoke(templateTest, args);
+        Object invoke = method.invoke(object, args);
         System.out.println("方法动态代理后");
         return invoke;
     }
